@@ -26,15 +26,35 @@ class _MyAppState extends State<MyApp>{
     return new MaterialApp(title: 'Image converter',
       home: new Scaffold(
           appBar: new AppBar(title: new Text('Image Converter'),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.image),
+                tooltip: 'Open gallery',
+                onPressed: (){},
+              ),
+              IconButton(
+                icon: Icon(Icons.save,),
+                tooltip: 'Save photo',
+                onPressed: (){},
+              ),
+            ],
           ),
           body: new Center(child: _image == null? new Text('No image to convert'):new Image.file(_image),
           ),
           floatingActionButton:Column(
-              //crossAxisAlignment: CrossAxisAlignment.end,
+            //crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 FloatingActionButton(
-                  child: Icon(Icons.delete, color: Colors.white,),
+                  child: Icon(Icons.image,),
+                  tooltip: 'Open gallery',
+                  mini: true,
+                  backgroundColor: Colors.blue,
+                  onPressed: (){},
+                ),
+                FloatingActionButton(
+                  child: Icon(Icons.save,),
+                  tooltip: 'Save photo',
                   mini: true,
                   onPressed: (){},
                 ),
