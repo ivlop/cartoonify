@@ -1,5 +1,5 @@
 all:
-	git add Makefile *.txt *.pdf *.jpg *.PNG *.mdzip *.bak 
+	git add *
 	git commit
 	git push
 
@@ -12,3 +12,6 @@ push:
 
 pdf:
 	okular enunciado-p2.pdf&
+
+add:
+	git add Makefile *.txt *.pdf *.jpg *.PNG *.mdzip *.bak 
