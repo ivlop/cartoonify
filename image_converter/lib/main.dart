@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp>{
           body: new Center(child: _image == null? new Text('No image to convert'):new Image.file(_image),
           ),
           floatingActionButton:Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              //crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 FloatingActionButton(
