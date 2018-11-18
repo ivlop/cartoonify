@@ -135,12 +135,12 @@ class CameraScreenState extends State<CameraScreen>{
     if (widget.cameras.isEmpty) {
       return const Text('No camera found');
     } else {
-      //for (CameraDescription cameraDescription in widget.cameras) {
+      for (CameraDescription cameraDescription in widget.cameras) {
         toggles.add(
           SizedBox(
             width: 80.0,
             child: RadioListTile<CameraDescription>(
-              title: Icon(getCameraLensIcon(widget.cameras[0].lensDirection)),
+              title: Icon(getCameraLensIcon(cameraDescription.lensDirection)),
               groupValue: controller?.description,
               value: widget.cameras[0],
               onChanged: controller != null && controller.value.isRecordingVideo
@@ -149,7 +149,7 @@ class CameraScreenState extends State<CameraScreen>{
             ),
           ),
         );
-      //}
+      }
     }
 
     return Row(children: toggles);
