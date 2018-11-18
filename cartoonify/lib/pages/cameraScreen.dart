@@ -90,7 +90,7 @@ class CameraScreenState extends State<CameraScreen>{
   Widget _cameraPreviewWidget() {
     if (controller == null || !controller.value.isInitialized) {
       return const Text(
-        'Tap a camera',
+        'Choose a camera',
         style: TextStyle(
           color: Colors.white,
           fontSize: 24.0,
@@ -138,21 +138,27 @@ class CameraScreenState extends State<CameraScreen>{
       for (CameraDescription cameraDescription in widget.cameras) {
         toggles.add(
           SizedBox(
-            width: 80.0,
+            width: 40.0,
             child: RadioListTile<CameraDescription>(
-              title: Icon(getCameraLensIcon(cameraDescription.lensDirection)),
+              dense: true,
+              //title: Icon(getCameraLensIcon(cameraDescription.lensDirection)),
               groupValue: controller?.description,
-              value: widget.cameras[0],
+              value: cameraDescription,
+              selected: true,
               onChanged: controller != null && controller.value.isRecordingVideo
                   ? null
                   : onNewCameraSelected,
             ),
           ),
         );
+        toggles.add(Icon(getCameraLensIcon(cameraDescription.lensDirection),size: 30,),);
       }
     }
 
-    return Row(children: toggles);
+    return Row(
+      children: toggles,
+      mainAxisSize: MainAxisSize.min,
+    );
   }
 
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
