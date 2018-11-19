@@ -21,24 +21,14 @@ class TransformScreen extends StatelessWidget {
           _thumbnailWidget(),
         ],
       ),
-      bottomNavigationBar: new Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          /*FloatingActionButton.extended(
-            icon: Icon(Icons.undo),
-            label: Text("Return"),
-            onPressed: (){Navigator.pop(context);},
-          ),*/
-          FloatingActionButton.extended(
-            icon: Icon(Icons.check),
-            label: Text("Transform"),
-            onPressed: () => Navigator.push(context,
-                new MaterialPageRoute(
-                    builder: (context) => new TransformedImageScreen())),
-          ),
-        ],
-      )
+      floatingActionButton: FloatingActionButton.extended(
+        isExtended: true,
+        icon: Icon(Icons.check),
+        label: Text("Transform"),
+        onPressed: () => Navigator.pushReplacement(context,
+            new MaterialPageRoute(
+                builder: (context) => new TransformedImageScreen())),
+        ),
     );
   }
 

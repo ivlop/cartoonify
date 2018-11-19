@@ -201,7 +201,7 @@ class CameraScreenState extends State<CameraScreen>{
         });
         if (filePath != null) {
           //showInSnackBar('Picture saved to $filePath');
-          Navigator.push(context, new MaterialPageRoute(
+          Navigator.pushReplacement(context, new MaterialPageRoute(
               builder: (context) => new TransformScreen(filePath)));
         }
       }

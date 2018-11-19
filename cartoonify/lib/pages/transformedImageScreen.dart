@@ -7,6 +7,9 @@ class TransformedImageScreen extends StatelessWidget{
       appBar: new AppBar(
         title: new Text("Image cartoonified"),
       ),
+      body: new Text("imagen cartoonified",
+        textAlign: TextAlign.center,
+      ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
           onPressed: () => Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName))
