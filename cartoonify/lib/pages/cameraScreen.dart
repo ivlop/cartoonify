@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cartoonify/pages/transformScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path_provider/path_provider.dart';
@@ -198,7 +199,11 @@ class CameraScreenState extends State<CameraScreen>{
         setState(() {
           imagePath = filePath;
         });
-        if (filePath != null) showInSnackBar('Picture saved to $filePath');
+        if (filePath != null) {
+          //showInSnackBar('Picture saved to $filePath');
+          Navigator.push(context, new MaterialPageRoute(
+              builder: (context) => new TransformScreen(filePath)));
+        }
       }
     });
   }
