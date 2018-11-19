@@ -119,7 +119,7 @@ class CameraScreenState extends State<CameraScreen>{
               ? Image.file(File(imagePath))
               : Container(
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.pink)),
+                border: Border.all(color: Colors.black)),
           ),
           width: 64.0,
           height: 64.0,

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 
@@ -12,12 +14,45 @@ class TransformScreen extends StatelessWidget {
         title: new Text("Transform page"),
         backgroundColor: Colors.green,
       ),
-      body: new Text(
-          "Aqui apareceria la foto para transformar\n esta en el path: $_path"
+      body: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _thumbnailWidget(),
+        ],
       ),
-      floatingActionButton: new IconButton(
-        icon: Icon(Icons.check),
-        onPressed: (){},
+      bottomNavigationBar: new Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          /*FloatingActionButton.extended(
+            icon: Icon(Icons.undo),
+            label: Text("Return"),
+            onPressed: (){Navigator.pop(context);},
+          ),*/
+          FloatingActionButton.extended(
+            icon: Icon(Icons.check),
+            label: Text("Transform"),
+            onPressed: (){},
+          ),
+        ],
+      )
+    );
+  }
+
+  Widget _thumbnailWidget() {
+    return Expanded(
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: _path == null
+            ? null
+            : SizedBox(
+          child: (null == null)
+              ? Image.file(File(_path))
+              : Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black)),
+          ),
+        ),
       ),
     );
   }
