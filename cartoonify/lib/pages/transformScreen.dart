@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cartoonify/pages/homeScreen.dart';
 import 'package:cartoonify/pages/transformedImageScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,38 +16,39 @@ class TransformScreen extends StatelessWidget {
         title: new Text("Transform page"),
         backgroundColor: Colors.green,
       ),
-      body: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
         children: <Widget>[
-          _thumbnailWidget(),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: _path == null
+                  ? null
+                  : SizedBox(
+                child: (null == null)
+                    ? Image.file(File(_path))
+                    : Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black)),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      bottomNavigationBar:  FloatingActionButton.extended(
         isExtended: true,
         icon: Icon(Icons.check),
         label: Text("Transform"),
-        onPressed: () => Navigator.pushReplacement(context,
+        /*onPressed: () => Navigator.pushReplacement(context,
             new MaterialPageRoute(
-                builder: (context) => new TransformedImageScreen())),
+                builder: (context) => new TransformedImageScreen())),*/
+        onPressed: () => _onTransformPressed,
         ),
     );
   }
 
-  Widget _thumbnailWidget() {
-    return Expanded(
-      child: Align(
-        alignment: Alignment.centerRight,
-        child: _path == null
-            ? null
-            : SizedBox(
-          child: (null == null)
-              ? Image.file(File(_path))
-              : Container(
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.black)),
-          ),
-        ),
-      ),
-    );
+  void _onTransformPressed(BuildContext context){
+    HomeScreen
+    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
   }
 }

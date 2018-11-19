@@ -9,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 class CameraScreen extends StatefulWidget{
   List<CameraDescription> cameras;
 
+
   CameraScreen(this.cameras);
 
   @override
