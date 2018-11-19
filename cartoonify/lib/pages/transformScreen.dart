@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cartoonify/pages/transformedImageScreen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -32,7 +33,9 @@ class TransformScreen extends StatelessWidget {
           FloatingActionButton.extended(
             icon: Icon(Icons.check),
             label: Text("Transform"),
-            onPressed: (){},
+            onPressed: () => Navigator.push(context,
+                new MaterialPageRoute(
+                    builder: (context) => new TransformedImageScreen())),
           ),
         ],
       )
