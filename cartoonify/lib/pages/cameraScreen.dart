@@ -203,6 +203,7 @@ class CameraScreenState extends State<CameraScreen>{
           //showInSnackBar('Picture saved to $filePath');
           Navigator.pushReplacement(context, new MaterialPageRoute(
               builder: (context) => new TransformScreen(filePath)));
+          
         }
       }
     });
