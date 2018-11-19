@@ -39,16 +39,11 @@ class TransformScreen extends StatelessWidget {
         isExtended: true,
         icon: Icon(Icons.check),
         label: Text("Transform"),
-        /*onPressed: () => Navigator.pushReplacement(context,
+        onPressed: () => Navigator.pushReplacement(context,
             new MaterialPageRoute(
-                builder: (context) => new TransformedImageScreen())),*/
-        onPressed: () => _onTransformPressed,
+                builder: (context) => new TransformedImageScreen())),
+        //onPressed: () => Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName)),
         ),
     );
-  }
-
-  void _onTransformPressed(BuildContext context){
-    HomeScreen
-    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
   }
 }

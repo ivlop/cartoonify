@@ -210,13 +210,6 @@ class CameraScreenState extends State<CameraScreen>{
     });
   }
 
-  /*List<Container> containers = new List<Container>.generate(numberOfTiles,
-  (int index) {
-    //index = 0, 1, 2,...
-    final imageName = index < 9 ?
-              'images/image0${index + 1}.JPG' : 'images/image${index + 1}.JPG';*/
-
-
   Future<String> takePicture() async {
     if (!controller.value.isInitialized) {
       showInSnackBar('Error: select a camera first.');

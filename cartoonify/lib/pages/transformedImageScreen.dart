@@ -10,10 +10,11 @@ class TransformedImageScreen extends StatelessWidget{
       body: new Text("imagen cartoonified",
         textAlign: TextAlign.center,
       ),
-      floatingActionButton: FloatingActionButton(
+     /* floatingActionButton: FloatingActionButton(
           child: Icon(Icons.home),
-          onPressed: () => Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName))
-      ),
+          //onPressed: () => Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName))
+          onPressed: () => Navigator.pop(context),
+      ),*/
     );
   }
   

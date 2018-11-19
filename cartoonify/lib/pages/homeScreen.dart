@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cartoonify/pages/cameraScreen.dart';
 
@@ -37,6 +38,26 @@ class _HomeScreenState extends State<HomeScreen>
           textScaleFactor: 1.5,
         ),
       );
+    } else{
+      Column(
+        children: <Widget>[
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: _path == null
+                  ? null
+                  : SizedBox(
+                child: (null == null)
+                    ? Image.file(File(_path))
+                    : Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black)),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
     }
   }
 
@@ -57,9 +78,5 @@ class _HomeScreenState extends State<HomeScreen>
         onPressed: () => Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName))
       );
     }
-  }
-
-  static setPath(String value){
-    widget.path = value;
   }
 }
