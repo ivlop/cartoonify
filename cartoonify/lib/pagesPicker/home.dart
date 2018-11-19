@@ -24,16 +24,19 @@ class _MyAppState extends State<HomePantalla>{
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(title: 'Image converter',
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Cartoonify',
       home: new Scaffold(
           appBar: new AppBar(
-            title: new Text('Image Converter'),
+            title: new Text('Cartoonify'),
+            backgroundColor: Colors.orange,
             actions: _image ==null
                 ? null
                 : <Widget>[
                   IconButton(
                     icon: Icon(Icons.delete),
-                    onPressed: _replayPressed,
+                    onPressed: _deletePressed,
                   )
             ],
           ),
@@ -51,20 +54,11 @@ class _MyAppState extends State<HomePantalla>{
                   child: Icon(Icons.photo_camera),
                 ),
               ]: <Widget>[
-                /*FloatingActionButton(
-                  child: Icon(Icons.delete, color: Colors.white,),
-                  mini: true,
-                  backgroundColor: Colors.red,
-                  onPressed: _replayPressed,
-                ),*/
                 FloatingActionButton.extended(
                   label: new Text("Transform"),
                   icon: Icon(Icons.check,),
                   backgroundColor: Colors.greenAccent,
-                  onPressed: () => Navigator.push(context,
-                      new MaterialPageRoute(
-                          builder: (context) => new TransformedImageScreen())),
-
+                  onPressed: _transformPressed,
                 ),
               ]
           ),
@@ -72,9 +66,16 @@ class _MyAppState extends State<HomePantalla>{
     );
   }
 
-  void _replayPressed() {
+  void _deletePressed() {
     setState(() {
       _image = null;
     });
+    print("hola");
+  }
+  void _transformPressed() {
+    Navigator.push(context,
+        new MaterialPageRoute(
+            builder: (context) => new TransformedImageScreen()));
+    _deletePressed();
   }
 }
