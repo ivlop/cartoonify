@@ -4,6 +4,7 @@ import 'package:cartoonify/pages/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:camera/camera.dart';
+import 'package:cartoonify/pagesPicker/home.dart';
 
 List<CameraDescription> cameras;
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: "Cartoonify",
       debugShowCheckedModeBanner: false,
-      home: new HomeScreen(cameras),
+      home: new HomePantalla(),
     );
   }
 }
