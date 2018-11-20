@@ -14,6 +14,7 @@ class HomePantalla extends StatefulWidget{
 
 class _MyAppState extends State<HomePantalla>{
   File _image;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   Future getImage() async{
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -28,6 +29,7 @@ class _MyAppState extends State<HomePantalla>{
       debugShowCheckedModeBanner: false,
       title: 'Cartoonify',
       home: new Scaffold(
+        key: _scaffoldKey,
           appBar: new AppBar(
             title: new Text('Cartoonify'),
             backgroundColor: Colors.orange,
@@ -70,12 +72,26 @@ class _MyAppState extends State<HomePantalla>{
     setState(() {
       _image = null;
     });
-    print("hola");
   }
   void _transformPressed() {
+    _scaffoldKey.currentState.showSnackBar(
+        new SnackBar(duration: new Duration(seconds: 4), content:
+        new Row(
+          children: <Widget>[
+            new CircularProgressIndicator(),
+            new Text("  Transforming...")
+          ],
+        ),
+        ));
+
     Navigator.push(context,
         new MaterialPageRoute(
             builder: (context) => new TransformedImageScreen()));
+
+    sleep2();
     _deletePressed();
+  }
+  Future sleep2() {
+    return new Future.delayed(const Duration(seconds: 2), () => "2");
   }
 }
