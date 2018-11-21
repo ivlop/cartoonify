@@ -25,6 +25,7 @@ dependencies:
   scoped_model:
   http: any
   path: any
+  progress_indicators: ^0.1.2
 
 
 dev_dependencies:

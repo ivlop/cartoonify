@@ -53,11 +53,13 @@ class _HomeScreenState extends State<HomeScreen>{
           ),
           body: ScopedModelDescendant<AppModel>(
             builder: (context, child, model){
-              return Center(
+              return Center(child: model.msg);
+              /*return Center(
                 child: model.image == null
                     ? new Text('Take a picture to convert', textScaleFactor: 1.5,)
                     : new Image.file(model.image),
-              );
+
+              );*/
             }
           ),
           floatingActionButton:ScopedModelDescendant<AppModel>(
@@ -65,20 +67,28 @@ class _HomeScreenState extends State<HomeScreen>{
                  return Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: model.image==null? <Widget>[
+                    children: model.buttons==0? <Widget>[
                       FloatingActionButton(
                         onPressed: model.getImage,
                         tooltip: 'Take a picture',
                         child: Icon(Icons.photo_camera),
                       ),
-                    ]: <Widget>[
+                    ]: model.buttons==1? <Widget>[
                       FloatingActionButton.extended(
-                        label: new Text("Transform"),
-                        icon: Icon(Icons.check,),
-                        backgroundColor: Colors.greenAccent,
-                        onPressed: () => model.transformPressed(context),
+                        label: new Text("Cancel"),
+                        icon: Icon(Icons.cancel,),
+                        tooltip: "Cancel transform",
+                        backgroundColor: Colors.red,
+                        onPressed: model.resetMsg,
                       ),
-                    ]
+                    ]: model.buttons==2?<Widget>[
+                      FloatingActionButton.extended(
+                        label: new Text("Restart"),
+                        icon: Icon(Icons.refresh,),
+                        tooltip: "Go to beginning",
+                        onPressed: model.resetMsg,
+                      ),
+                    ]: <Widget>[]
                 );
               }
           ),
