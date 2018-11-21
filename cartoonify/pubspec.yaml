@@ -23,6 +23,8 @@ dependencies:
   camera:
   path_provider:
   scoped_model:
+  http: any
+  path: any
 
 
 dev_dependencies:
