@@ -2,16 +2,16 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cartoonify/pages/cameraScreen.dart';
 
-class HomeScreen extends StatefulWidget{
+class HomeScree extends StatefulWidget{
   var cameras;
   var path;
-  HomeScreen(this.cameras,this.path);
+  HomeScree(this.cameras,this.path);
 
   @override
   _HomeScreenState createState() => new _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _HomeScreenState extends State<HomeScree>
     with SingleTickerProviderStateMixin{
   String _path;
   @override
