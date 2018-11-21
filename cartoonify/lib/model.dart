@@ -8,13 +8,28 @@ import 'dart:convert';
 import  'dart:io';
 import 'package:http/http.dart' as http;
 import "package:path/path.dart" show dirname;
+import 'package:path_provider/path_provider.dart';
 
 
 class AppModel extends Model{
+  int _i = 0;
 
   File _image;
 
   File get image => _image;
+
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+
+    return directory.path;
+  }
+
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    _i++;
+    return File('$path/image$_i.png');
+  }
+
 
   void getImage() async {
     var photo = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -53,7 +68,7 @@ class AppModel extends Model{
 
         if (cartoon != null) {
           // Creating the output file
-          var outputFile = File(pathCartoon);
+          var outputFile = await _localFile;
           // Decoding base64 string received as response
           var imageResponse = base64.decode(cartoon);
           // Writing the decoded image to the output file
@@ -64,9 +79,11 @@ class AppModel extends Model{
       }
     } catch  (e) {
       print( 'Server is down');
+    } finally {
+      notifyListeners();
     }
 
-    notifyListeners();
+
   }
   void deletePressed() {
       _image = null;
