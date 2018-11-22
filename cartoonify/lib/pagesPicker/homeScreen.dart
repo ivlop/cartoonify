@@ -83,8 +83,8 @@ class _HomeScreenState extends State<HomeScreen>{
                       ),
                     ]: model.buttons==2?<Widget>[
                       FloatingActionButton.extended(
-                        label: new Text("Restart"),
-                        icon: Icon(Icons.refresh,),
+                        label: new Text("Home"),
+                        icon: Icon(Icons.home,),
                         tooltip: "Go to beginning",
                         onPressed: model.resetMsg,
                       ),
