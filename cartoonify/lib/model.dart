@@ -102,7 +102,14 @@ class AppModel extends Model{
             var imageResponse = base64.decode(cartoon);
             // Writing the decoded image to the output file
             await outputFile.writeAsBytes(imageResponse);
-            _msg = new Image.file(outputFile);
+            _msg = new SizedBox(
+              child: Container(
+                child: new Image.file(outputFile),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black)),
+              )
+              );
+
             _buttons = 2;
             notifyListeners();
 
@@ -164,6 +171,7 @@ class AppModel extends Model{
     _buttons = 0;
     notifyListeners();
   }
+
 }
 
 
