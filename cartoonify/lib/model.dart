@@ -154,7 +154,7 @@ class AppModel extends Model{
       resetMsg();
     }
   }
-  
+
   void deletePressed() {
       _image = null;
       notifyListeners();
