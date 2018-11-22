@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:cartoonify/pagesPicker//transformedImageScreen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
