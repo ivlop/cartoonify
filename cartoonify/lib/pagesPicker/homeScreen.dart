@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:cartoonify/pagesPicker//transformedImageScreen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -83,8 +82,8 @@ class _HomeScreenState extends State<HomeScreen>{
                       ),
                     ]: model.buttons==2?<Widget>[
                       FloatingActionButton.extended(
-                        label: new Text("Restart"),
-                        icon: Icon(Icons.refresh,),
+                        label: new Text("Home"),
+                        icon: Icon(Icons.home,),
                         tooltip: "Go to beginning",
                         onPressed: model.resetMsg,
                       ),
