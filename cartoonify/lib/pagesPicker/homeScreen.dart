@@ -1,11 +1,10 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:cartoonify/model.dart';
 
-void main() => runApp(HomeScreen());/////////////////////////////////////////////////////////////////////
+//void main() => runApp(HomeScreen());/////////////////////////////////////////////////////////////////////
 
 class HomeScreen extends StatefulWidget{
   @override
