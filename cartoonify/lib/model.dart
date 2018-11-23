@@ -14,11 +14,9 @@ import 'package:progress_indicators/progress_indicators.dart';
 class AppModel extends Model{
   int _i = 0;
   Widget _msg = new Text('Take a picture to convert', textScaleFactor: 1.5,);
-  File _image;
   int _buttons = 0;
 
   Widget get msg => _msg;
-  File get image => _image;
   int get buttons => _buttons;
 
   Future<String> get _localPath async {
@@ -53,8 +51,8 @@ class AppModel extends Model{
       // Creating request
       // NOTE: In the emulator, localhost ip is 10.0.2.2
       //var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
-      //var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
-      var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
+      var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
+      //var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
       var request = http.MultipartRequest("POST", uri);
       var inputFile = http.MultipartFile.fromBytes(
           'image', imageAsBytes, filename: 'image.jpg');
@@ -106,7 +104,6 @@ class AppModel extends Model{
             _buttons = 2;
             notifyListeners();
 
-            //_image = outputFile;
           }
         }
       } catch (e) {
@@ -152,11 +149,6 @@ class AppModel extends Model{
     catch(e){
       resetMsg();
     }
-  }
-
-  void deletePressed() {
-      _image = null;
-      notifyListeners();
   }
 
   void resetMsg(){

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:cartoonify/model.dart';
 
-void main() => runApp(HomeScreen());
+void main() => runApp(HomeScreen());/////////////////////////////////////////////////////////////////////
 
 class HomeScreen extends StatefulWidget{
   @override
@@ -14,15 +14,8 @@ class HomeScreen extends StatefulWidget{
 }
 
 class _HomeScreenState extends State<HomeScreen>{
-  //File _image;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  /*Future getImage() async{
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-    setState(() {
-      _image = image;
-    });
-  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -34,31 +27,10 @@ class _HomeScreenState extends State<HomeScreen>{
           appBar: new AppBar(
             title: new Text('Cartoonify'),
             backgroundColor: Colors.orange,
-            actions: <Widget>[
-              ScopedModelDescendant<AppModel>(
-                builder: (context, child, model){
-                  if(model.image !=null){
-                    return IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: model.deletePressed,
-                    );
-                  }else {
-                    return new Container();
-                  }
-                },
-              )
-
-            ],
           ),
           body: ScopedModelDescendant<AppModel>(
             builder: (context, child, model){
               return Center(child: model.msg);
-              /*return Center(
-                child: model.image == null
-                    ? new Text('Take a picture to convert', textScaleFactor: 1.5,)
-                    : new Image.file(model.image),
-
-              );*/
             }
           ),
           floatingActionButton:ScopedModelDescendant<AppModel>(
