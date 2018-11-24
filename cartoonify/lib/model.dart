@@ -36,30 +36,6 @@ class AppModel extends Model{
 
   void getImage() async {
 
-    var photo = await ImagePicker.pickImage(source: ImageSource.camera);
-    _msg = new Text('Getting picture', textScaleFactor: 1.5,);
-    _buttons = 1;
-    notifyListeners();
-    // Getting the absolute path to this script file
-    var currentPath = dirname(Platform.script.path);
-    // Generating  absolute paths for the input/output images
-    var pathImage="$currentPath/../samples/image.jpg";
-    var pathCartoon="$currentPath/../samples/cartoon.png";
-
-    // Reading image
-    var image = photo;
-    var imageAsBytes = await image.readAsBytes();
-
-    // Creating request
-    // NOTE: In the emulator, localhost ip is 10.0.2.2
-    //var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
-    //var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
-    var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
-    var request = http.MultipartRequest("POST", uri);
-    var inputFile = http.MultipartFile.fromBytes('image', imageAsBytes, filename: 'image.jpg');
-    request.files.add(inputFile);
-
-
     try {
       var photo = await ImagePicker.pickImage(source: ImageSource.camera);
       _msg = new Text('Getting picture', textScaleFactor: 1.5,);
@@ -77,9 +53,10 @@ class AppModel extends Model{
 
       // Creating request
       // NOTE: In the emulator, localhost ip is 10.0.2.2
-      //var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
+      var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
       //var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
-      var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
+      //var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
+      //var uri = Uri.parse('http://10.0.2.2:5000/cartoon'); //emulador
       var request = http.MultipartRequest("POST", uri);
       var inputFile = http.MultipartFile.fromBytes(
           'image', imageAsBytes, filename: 'image.jpg');
