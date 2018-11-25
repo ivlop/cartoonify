@@ -35,7 +35,6 @@ class AppModel extends Model{
   void getImage() async {
     try {
       var photo = await ImagePicker.pickImage(source: ImageSource.camera);
-      _msg = new Text('Getting picture', textScaleFactor: 1.5,);
       _buttons = 1;
       notifyListeners();
       // Getting the absolute path to this script file
@@ -77,9 +76,6 @@ class AppModel extends Model{
         var response = await request.send();
 
         if (response.statusCode == 200) {
-          _msg = new Text('ok :)', textScaleFactor: 1.5,
-            style: TextStyle(color: Colors.green),);
-          notifyListeners();
 
           // Receiving response stream
           var responseStr = await response.stream.bytesToString();
@@ -91,8 +87,6 @@ class AppModel extends Model{
           var cartoon = data['cartoon'];
 
           if (cartoon != null) {
-            _msg = new Text('Transforming...', textScaleFactor: 1.5,);
-            notifyListeners();
 
             // Creating the output file
             var outputFile = await _localFile;
@@ -106,7 +100,7 @@ class AppModel extends Model{
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.black)),
               )
-              );
+            );
 
             _buttons = 2;
             notifyListeners();
@@ -114,15 +108,6 @@ class AppModel extends Model{
           }
         }
       } catch (e) {
-        //print( 'Server is down');
-        /*_msg = new Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          new Text('Server error', textScaleFactor: 1.5,),
-          new Icon(Icons.error, color: Colors.red, size: 80,)
-        ],
-      );*/
         _msg = new AlertDialog(
           title: new Row(
             children: <Widget>[
