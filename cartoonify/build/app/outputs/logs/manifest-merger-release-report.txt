@@ -1,0 +1,154 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+MERGED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-23:12
+MERGED from [:camera] /home/ivan/Escritorio/ipm-p2/cartoonify/build/camera/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-10:12
+MERGED from [:path_provider] /home/ivan/Escritorio/ipm-p2/cartoonify/build/path_provider/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:support-v4:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/c29ddd913e7deed01fb19d39ec82c71e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/30620f2d897eb966858841fdca9aaddf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/bc16f77a20ccfc83d5e892e90a765ece/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/117d5487d5c38f40a45231bc489331aa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/c4600fbfd977520ed3e17177d113a02d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/38cc0d5b6506a369764f2fc3868c9ef0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7d33e6a2dcaa946de5a1dcb2ca41f6d9/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/42009a5e742461d197465c17ca3a3249/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/71bd1f7af1f725392fc0479990dcc5e0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/2c84f87c65f80354deb205c4e34868cf/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+	package
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:2:5-37
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:1-39:12
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:8:5-66
+	android:name
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:8:22-64
+application
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:15:5-38:19
+MERGED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:11:5-21:19
+MERGED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:11:5-21:19
+	android:label
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:17:9-35
+	android:icon
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:18:9-43
+	android:name
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:16:9-57
+activity#com.example.cartoonify.MainActivity
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:19:9-37:20
+	android:launchMode
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:21:13-43
+	android:hardwareAccelerated
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:24:13-47
+	android:windowSoftInputMode
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:25:13-55
+	android:configChanges
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:23:13-137
+	android:theme
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:22:13-47
+	android:name
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:20:13-41
+meta-data#io.flutter.app.android.SplashScreenUntilFirstFrame
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:30:13-32:40
+	android:value
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:32:17-37
+	android:name
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:31:17-82
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:33:13-36:29
+action#android.intent.action.MAIN
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:34:17-68
+	android:name
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:34:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:35:17-76
+	android:name
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml:35:27-74
+uses-sdk
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+MERGED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:camera] /home/ivan/Escritorio/ipm-p2/cartoonify/build/camera/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:camera] /home/ivan/Escritorio/ipm-p2/cartoonify/build/camera/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] /home/ivan/Escritorio/ipm-p2/cartoonify/build/path_provider/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] /home/ivan/Escritorio/ipm-p2/cartoonify/build/path_provider/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/c29ddd913e7deed01fb19d39ec82c71e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/c29ddd913e7deed01fb19d39ec82c71e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/30620f2d897eb966858841fdca9aaddf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/30620f2d897eb966858841fdca9aaddf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/bc16f77a20ccfc83d5e892e90a765ece/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/bc16f77a20ccfc83d5e892e90a765ece/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/117d5487d5c38f40a45231bc489331aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/117d5487d5c38f40a45231bc489331aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/c4600fbfd977520ed3e17177d113a02d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/c4600fbfd977520ed3e17177d113a02d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/38cc0d5b6506a369764f2fc3868c9ef0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/ivan/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/38cc0d5b6506a369764f2fc3868c9ef0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7d33e6a2dcaa946de5a1dcb2ca41f6d9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7d33e6a2dcaa946de5a1dcb2ca41f6d9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/42009a5e742461d197465c17ca3a3249/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/42009a5e742461d197465c17ca3a3249/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/71bd1f7af1f725392fc0479990dcc5e0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/71bd1f7af1f725392fc0479990dcc5e0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/2c84f87c65f80354deb205c4e34868cf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/ivan/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/2c84f87c65f80354deb205c4e34868cf/AndroidManifest.xml:20:5-44
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/ivan/Escritorio/ipm-p2/cartoonify/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:5-80
+	android:name
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:22-78
+uses-permission#android.permission.CAMERA
+ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:9:5-65
+MERGED from [:camera] /home/ivan/Escritorio/ipm-p2/cartoonify/build/camera/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:5-65
+MERGED from [:camera] /home/ivan/Escritorio/ipm-p2/cartoonify/build/camera/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:7:5-65
+	android:name
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:9:22-62
+provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
+ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:14:13-74
+	android:exported
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:13:13-82
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:17:13-19:75
+	android:resource
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:19:17-72
+	android:name
+		ADDED from [:image_picker] /home/ivan/Escritorio/ipm-p2/cartoonify/build/image_picker/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:18:17-67
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from [:camera] /home/ivan/Escritorio/ipm-p2/cartoonify/build/camera/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:5-71
+	android:name
+		ADDED from [:camera] /home/ivan/Escritorio/ipm-p2/cartoonify/build/camera/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:8:22-68
