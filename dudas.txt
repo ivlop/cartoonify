@@ -4,4 +4,4 @@
 -hay que pulsar dos veces el boton de la galeria para que funcione
 -como comprobar los permisos de almacenamiento solo al principio (usando la funcion que tenemos creada?)
 
-
+en el modelo, a pesar de no extender de statefulwidget, podriamos poner que el dialogo se mostrase por encima de lo que hay
