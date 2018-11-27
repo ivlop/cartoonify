@@ -1,0 +1,3 @@
+itembuilder y dentro el grid (para la galeria)
+
+hacer debajo dos pestanas, una de camara y otra de galeria (en la sig iter)
