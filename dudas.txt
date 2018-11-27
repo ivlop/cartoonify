@@ -1,5 +1,5 @@
 -en el diagrama de secuencia, como representamos que el cancelar te devuelve a la pantalla principal
--necesitamos el finally en el try catch
+-necesitamos el finally en el try catch (215)
 
 -hay que pulsar dos veces el boton de la galeria para que funcione
 -como comprobar los permisos de almacenamiento solo al principio (usando la funcion que tenemos creada?)
