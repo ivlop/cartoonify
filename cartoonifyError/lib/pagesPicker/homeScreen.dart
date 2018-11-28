@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:cartoonify/model.dart';
+import 'package:simple_permissions/simple_permissions.dart';
 
 void main() => runApp(HomeScreen());
 
@@ -16,6 +17,23 @@ class HomeScreen extends StatefulWidget{
 class _HomeScreenState extends State<HomeScreen>{
   //File _image;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    requestPermission();
+  }
+
+  void requestPermission() async {
+    bool res = await SimplePermissions.checkPermission(
+        Permission.WriteExternalStorage);
+    //print (res.toString());
+    if (!res) {
+      final res = await SimplePermissions.requestPermission(
+          Permission.WriteExternalStorage);
+      print("permision result: " + res.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
