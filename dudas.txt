@@ -4,5 +4,5 @@
 -hay que pulsar dos veces el boton de la galeria para que funcione
 -como comprobar los permisos de almacenamiento solo al principio (usando la funcion que tenemos creada?)
 
--si quieres guardar las fotos en una carpeta, peta, pero si las guardas en la raiz no
+-el metodo deletePhotos (ultimo) esta bien lo que devuelve?
 

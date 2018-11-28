@@ -1,20 +1,14 @@
-import 'dart:io';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:cartoonify/model.dart';
 
-//void main() => runApp(HomeScreen());/////////////////////////////////////////////////////////////////////
-
 class HomeScreen extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => new _HomeScreenState();
-
 }
 
 class _HomeScreenState extends State<HomeScreen>{
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +59,4 @@ class _HomeScreenState extends State<HomeScreen>{
       ),
     );
   }
-
-
 }
