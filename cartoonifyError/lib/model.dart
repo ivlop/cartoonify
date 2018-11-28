@@ -178,6 +178,11 @@ class AppModel extends Model{
        requestPermission();
        storage.localPath.then((String path){
          final directory = new Directory(path+'/Pictures/cartoonify');
+         directory.exists().then((isThere){
+           if(!isThere){
+             directory.create(recursive: true);
+           }
+         });
        });
      }catch (e) {
        print("error permisos");
