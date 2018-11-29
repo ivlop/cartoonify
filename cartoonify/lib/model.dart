@@ -271,19 +271,8 @@ class AppModel extends Model{
   void shareImage() {
     AdvancedShare.generic(msg: "Look what I'm doing with Cartoonify!", url: "data:image/png;base64," + cartoon64).then((response) {
       handleResponse(response);
-    }
+      }
     );
-  }
-
-  void requestPermission() async {
-    bool res = await SimplePermissions.checkPermission(
-        Permission.WriteExternalStorage);
-    print (res.toString());
-    if (!res) {
-      final res = await SimplePermissions.requestPermission(
-          Permission.WriteExternalStorage);
-      print("permision result: " + res.toString());
-    }
   }
 }
 
