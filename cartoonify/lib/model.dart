@@ -200,14 +200,7 @@ class AppModel extends Model{
                 onPressed: resetMsg,
                 child: new Text("Close", textScaleFactor: 1.2,),
               ),
-            ], /*: new Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text('Server error', textScaleFactor: 1.5,),
-            new Icon(Icons.error, color: Colors.red, size: 80,)
-          ],
-        ),*/
+            ], 
           );
           _buttons = 4;
           notifyListeners();
