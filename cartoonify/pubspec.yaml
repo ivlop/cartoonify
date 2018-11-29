@@ -20,11 +20,16 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   image_picker: ^0.4.4
+  camera:
   path_provider:
   scoped_model:
   http: any
   path: any
   progress_indicators: ^0.1.2
+  advanced_share:
+      git:
+        url: https://github.com/nbarreira/Flutter-Advanced-Share.git
+  simple_permissions:
 
 
 dev_dependencies:
