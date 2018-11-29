@@ -1,2 +1,0 @@
--el metodo deletePhotos (ultimo) esta bien lo que devuelve?
-
