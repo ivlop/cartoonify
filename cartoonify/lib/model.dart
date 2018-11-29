@@ -28,18 +28,11 @@ class AppModel extends Model{
 
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
-    //final directory = await getExternalStorageDirectory();
-
     return directory.path;
   }
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    /*int _index = await readCounter();
-    /i++;
-    print("index:"+_i.toString());
-    print('localfile: $path/Cartoonify/image$_i.png');
-    return File('$path/Cartoonify/image$_i.png');*/
     _i++;
     return File('$path/image$_i.png');
   }
@@ -177,15 +170,6 @@ class AppModel extends Model{
             }
           }
         } catch (e) {
-          //print( 'Server is down');
-          /*_msg = new Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          new Text('Server error', textScaleFactor: 1.5,),
-          new Icon(Icons.error, color: Colors.red, size: 80,)
-        ],
-      );*/
           _msg = new AlertDialog(
             title: new Row(
               children: <Widget>[
@@ -200,7 +184,7 @@ class AppModel extends Model{
                 onPressed: resetMsg,
                 child: new Text("Close", textScaleFactor: 1.2,),
               ),
-            ], 
+            ],
           );
           _buttons = 4;
           notifyListeners();
