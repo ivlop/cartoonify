@@ -1,6 +1,4 @@
 import 'dart:io';
-import 'dart:async';
-import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:cartoonify/model.dart';
@@ -28,8 +26,7 @@ class _HomeScreenState extends State<HomeScreen>{
     bool res = await SimplePermissions.checkPermission(
         Permission.WriteExternalStorage);
     if (!res) {
-      final res = await SimplePermissions.requestPermission(
-          Permission.WriteExternalStorage);
+      await SimplePermissions.requestPermission(Permission.WriteExternalStorage);
     }
   }
 

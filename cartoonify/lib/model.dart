@@ -1,12 +1,9 @@
 import 'dart:io';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import "package:path/path.dart" show dirname;
-import 'package:path_provider/path_provider.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 import 'package:advanced_share/advanced_share.dart';
 import 'package:simple_permissions/simple_permissions.dart';
@@ -23,6 +20,7 @@ class AppModel extends Model{
   bool _server=false;
 
   Widget get msg => _msg;
+  String get imageSelected => _imageSelected;
   int get buttons => _buttons;
   String get cartoon64 => _cartoon64;
   bool get server => _server;
@@ -51,8 +49,8 @@ class AppModel extends Model{
 
         // Creating request
         // NOTE: In the emulator, localhost ip is 10.0.2.2
-        var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
-        //var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
+        //var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
+        var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
         //var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
         //var uri = Uri.parse('http://192.168.43.96:5000/cartoon');
         var request = http.MultipartRequest("POST", uri);
@@ -264,7 +262,7 @@ class AppModel extends Model{
       print("application isn't installed");
       if (appName != null) {
         _scaffoldKey.currentState.showSnackBar(new SnackBar(
-          content: new Text("${appName} isn't installed."),
+          content: new Text("$appName isn't installed."),
           duration: new Duration(seconds: 4),
         ));
       }
@@ -280,7 +278,7 @@ class AppModel extends Model{
   }
 
   void shareImageFromGallery() {
-    File file = new File(_imageSelected);
+    File file = new File(imageSelected);
     List<int> imageBytes =  file.readAsBytesSync();
     String base64Image = base64Encode(imageBytes);
     AdvancedShare.generic(msg: "Look what I'm doing with Cartoonify!", url: "data:image/png;base64," + base64Image).then((response) {
@@ -288,17 +286,6 @@ class AppModel extends Model{
     }
     );
   }
-
-  void requestPermission() async {
-    bool res = await SimplePermissions.checkPermission(
-        Permission.WriteExternalStorage);
-    if (!res) {
-      final res = await SimplePermissions.requestPermission(
-          Permission.WriteExternalStorage);
-      print("permision result: " + res.toString());
-    }
-  }
-
 
   void _onTileClicked(String image){
     _imageSelected = image;
@@ -315,7 +302,7 @@ class AppModel extends Model{
   }
 
   void _deletePhotoPressed() async {
-    await _storage.deleteSelectedPhoto(_imageSelected);
+    await _storage.deleteSelectedPhoto(imageSelected);
     gallery();
 
   }
