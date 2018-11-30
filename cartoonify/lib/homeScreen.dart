@@ -27,11 +27,9 @@ class _HomeScreenState extends State<HomeScreen>{
   void requestPermission() async {
     bool res = await SimplePermissions.checkPermission(
         Permission.WriteExternalStorage);
-    //print (res.toString());
     if (!res) {
       final res = await SimplePermissions.requestPermission(
           Permission.WriteExternalStorage);
-      print("permision result: " + res.toString());
     }
   }
 
@@ -48,25 +46,25 @@ class _HomeScreenState extends State<HomeScreen>{
           actions: <Widget>[
             ScopedModelDescendant<AppModel>(
               builder: (context, child, model){
-                if(model.buttons == 0){
+                if(model.buttons == 1){
                   return IconButton(
                     icon: Icon(Icons.photo),
                     onPressed: model.gallery,
                   );
                 }
-                else if(model.buttons == 2){
+                else if(model.buttons == 3){
                   return IconButton(
                     icon: Icon(Icons.share),
                     onPressed: model.shareImage,
                     tooltip: "Press to share",
                   );
-                }else if(model.buttons == 3) {
+                }else if(model.buttons == 4) {
                   return IconButton(
                     icon: Icon(Icons.delete_forever),
                     onPressed: (){model.onDeleteAllPhotosClicked();},
                     tooltip: "Press to delete all photos",
                   );
-                }else if(model.buttons == 5){
+                }else if(model.buttons == 6){
                   return IconButton(
                     icon: Icon(Icons.delete),
                     onPressed: model.onDeletePhotoClicked,
@@ -83,12 +81,6 @@ class _HomeScreenState extends State<HomeScreen>{
         body: ScopedModelDescendant<AppModel>(
             builder: (context, child, model){
               return Center(child: model.msg);
-              /*return Center(
-                child: model.image == null
-                    ? new Text('Take a picture to convert', textScaleFactor: 1.5,)
-                    : new Image.file(model.image),
-
-              );*/
             }
         ),
         floatingActionButton:ScopedModelDescendant<AppModel>(
@@ -96,13 +88,13 @@ class _HomeScreenState extends State<HomeScreen>{
               return Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: model.buttons==0? <Widget>[
+                  children: model.buttons==1? <Widget>[
                     FloatingActionButton(
                       onPressed: model.getImage,
                       tooltip: 'Take a picture',
                       child: Icon(Icons.photo_camera),
                     ),
-                  ]: model.buttons==1? <Widget>[
+                  ]: model.buttons==2? <Widget>[
                     FloatingActionButton.extended(
                       label: new Text("Cancel"),
                       icon: Icon(Icons.cancel,),
@@ -110,20 +102,20 @@ class _HomeScreenState extends State<HomeScreen>{
                       backgroundColor: Colors.red,
                       onPressed: model.resetMsg,
                     ),
-                  ]: model.buttons==2?<Widget>[
+                  ]: model.buttons==3?<Widget>[
                     FloatingActionButton(
                       child: Icon(Icons.home,),
                       tooltip: "Go to beginning",
                       onPressed: model.resetMsg,
                     ),
-                  ]:model.buttons==3 || model.buttons == 4 ?<Widget>[
+                  ]:model.buttons==4 || model.buttons == 5 ?<Widget>[
                     FloatingActionButton.extended(
                       icon: Icon(Icons.undo,),
                       label: Text("Go back"),
                       tooltip: "Go to beginning",
                       onPressed: model.resetMsg,
                     ),
-                  ]:model.buttons==5 ?<Widget>[ new Column(
+                  ]:model.buttons==6 ?<Widget>[ new Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
 
                     children: <Widget>[
