@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen>{
                       icon: Icon(Icons.cancel,),
                       tooltip: "Cancel transform",
                       backgroundColor: Colors.red,
-                      onPressed: model.resetMsg,
+                      onPressed: model.resetMsgCancel,
                     ),
                   ]: model.buttons==3?<Widget>[
                     FloatingActionButton(

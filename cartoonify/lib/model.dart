@@ -20,12 +20,14 @@ class AppModel extends Model{
   String _cartoon64;
   final _scaffoldKey = new GlobalKey<ScaffoldState>();
   final InternalStorage _storage = new InternalStorage();
-
+  bool _server=false;
+  bool _photo=false;
 
   Widget get msg => _msg;
   int get buttons => _buttons;
   String get cartoon64 => _cartoon64;
-
+  bool get server => _server;
+  bool get photo => _photo;
 
   void getImage() async {
     try {
@@ -40,7 +42,8 @@ class AppModel extends Model{
       try {
         var photo = await ImagePicker.pickImage(source: ImageSource.camera);
         _msg = new Text('Getting picture', textScaleFactor: 1.5,);
-
+        _server=false;
+        _photo=false;
 
         _buttons = 2;
         notifyListeners();
@@ -51,9 +54,9 @@ class AppModel extends Model{
 
         // Creating request
         // NOTE: In the emulator, localhost ip is 10.0.2.2
-        //var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
+        var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
         //var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
-        var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
+        //var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
         //var uri = Uri.parse('http://192.168.43.96:5000/cartoon');
         var request = http.MultipartRequest("POST", uri);
         var inputFile = http.MultipartFile.fromBytes(
@@ -74,9 +77,6 @@ class AppModel extends Model{
           var response = await request.send();
 
           if (response.statusCode == 200) {
-            _msg = new Text('ok :)', textScaleFactor: 1.5,
-              style: TextStyle(color: Colors.green),);
-            notifyListeners();
 
             // Receiving response stream
             var responseStr = await response.stream.bytesToString();
@@ -89,8 +89,6 @@ class AppModel extends Model{
             _cartoon64 = cartoon;
 
             if (cartoon != null) {
-              _msg = new Text('Transforming...', textScaleFactor: 1.5,);
-              notifyListeners();
 
               // Decoding base64 string received as response
               var imageResponse = base64.decode(cartoon);
@@ -98,39 +96,44 @@ class AppModel extends Model{
               // Writing the decoded image to the output file
               var outputFile = await _storage.writePhoto(imageResponse);
 
-              _msg = new SizedBox(
-                  child: Container(
-                    child: new Image.file(outputFile),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black)),
-                  )
-              );
+              if (!_photo) {
+                _msg = new SizedBox(
+                    child: Container(
+                      child: new Image.file(outputFile),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black)),
+                    )
+                );
 
-              _buttons = 3;
-              notifyListeners();
-
+                _buttons = 3;
+                notifyListeners();
+              }
+              else {
+                _buttons = 1;
+                notifyListeners();
+              }
             }
           }
         } catch (e) {
-
-          _msg = new AlertDialog(
-            title: new Row(
-              children: <Widget>[
-                new Text("Server error  "),
-                new Icon(Icons.error, color: Colors.red, size: 30,),
-              ],
-            ),
-
-            actions: <Widget>[
-              //new Text('Server error', textScaleFactor: 1.5,),
-              new FlatButton(
-                onPressed: resetMsg,
-                child: new Text("Close", textScaleFactor: 1.2,),
+          if (!server) {
+            _msg = new AlertDialog(
+              title: new Row(
+                children: <Widget>[
+                  new Text("Server error  "),
+                  new Icon(Icons.error, color: Colors.red, size: 30,),
+                ],
               ),
-            ],
-          );
-          _buttons = 0;
-          notifyListeners();
+
+              actions: <Widget>[
+                new FlatButton(
+                  onPressed: resetMsg,
+                  child: new Text("Close", textScaleFactor: 1.2,),
+                ),
+              ],
+            );
+            _buttons = 0;
+            notifyListeners();
+          }
         }
       }
       catch (e) {
@@ -169,6 +172,13 @@ class AppModel extends Model{
     notifyListeners();
   }
 
+  void resetMsgCancel(){
+    _msg = new Text('Take a picture to convert', textScaleFactor: 1.5,);
+    _buttons = 1;
+    _server = true;
+    _photo = true;
+    notifyListeners();
+  }
 
   void gallery() async{
 
@@ -218,7 +228,6 @@ class AppModel extends Model{
         directory.list(recursive: false, followLinks: false).listen((
             FileSystemEntity entity) {
           final imageName = entity.path;
-          print(entity.path);
           containers.add(
             new Container(
               child: new InkResponse(
@@ -228,10 +237,8 @@ class AppModel extends Model{
               ),
             ),
           );
-          containers.isEmpty ? print("vacio") : print("no vacio2");
 
           if (containers.isNotEmpty) {
-            print("galeria");
             _msg = GridView.count(
               crossAxisSpacing: 5.0,
               mainAxisSpacing: 5.0,
@@ -242,7 +249,6 @@ class AppModel extends Model{
           } else {
             _msg = new Text("There are no photos", textScaleFactor: 1.5,);
             _buttons = 5;
-            print("entra");
           }
           notifyListeners();
         });
@@ -290,7 +296,6 @@ class AppModel extends Model{
   void requestPermission() async {
     bool res = await SimplePermissions.checkPermission(
         Permission.WriteExternalStorage);
-    //print (res.toString());
     if (!res) {
       final res = await SimplePermissions.requestPermission(
           Permission.WriteExternalStorage);
@@ -300,12 +305,11 @@ class AppModel extends Model{
 
 
   void _onTileClicked(String image){
-    //debugPrint("You tapped on item $index");
     _imageSelected = image;
     _msg = new Container(
       child: new Image.asset(image, fit: BoxFit.fill),
     );
-    _buttons=5;
+    _buttons=6;
     notifyListeners();
   }
 

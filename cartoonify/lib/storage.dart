@@ -68,61 +68,6 @@ class InternalStorage {
     return file.writeAsString('$counter');
   }
 
-
-  /*Future<List<Widget>> buildGridTiles() async{
-    final path = await localPath;
-    final counter = await readCounter();
-    List<Container> containers = new List<Container>.generate(counter,
-            (int index) {
-          //index = 0, 1, 2,...
-          final imageName = '$path/image$index.PNG';
-          // print('$localPath/${index+1}.jpg');
-          return new Container(
-            child: new InkResponse(
-              child: new Image.asset(imageName, fit: BoxFit.fill),
-              enableFeedback: true,
-              onTap: () => _onTileClicked(imageName),
-            ),
-          );
-        });
-    return containers;
-  }
-
-  void _onTileClicked(String image){
-    //debugPrint("You tapped on item $index");
-
-  }*/
-/*
-  Future<List<Widget>> buildGridTiles() async{
-    final path = await localPath;
-    final counter = await readCounter();
-    final List<Container> tiles = <Container>[];
-    for (int i = 0; i < counter; i++) {
-      final imageName = '$path/image${counter}.PNG';
-      tiles.add(new GridTile(
-          child: new InkResponse(
-            enableFeedback: true,
-            child: new Image.asset(imageName, fit: BoxFit.cover,),
-            onTap: () => _onTileClicked(i),
-          )));
-    }
-    return tiles;
-  } */
-
-  /*Future deletePhotos() async{
-    final path = await localPath;
-    final number = await readCounter();
-
-    for (var i=1; i==number;i++){
-      //File file = new File('$path/image$i.PNG');
-      File file = new File('$path/Pictures/cartoonify/image$i.PNG');
-      file.delete();
-      print(i);
-    }
-    //File count = new File('$path/Pictures/cartoonify/counter.txt');
-    //count.delete();
-  }*/
-
   Future<void> deletePhotos() async{
     final path = await localPath;
     final number = await readCounter();
