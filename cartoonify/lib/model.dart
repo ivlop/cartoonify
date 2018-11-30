@@ -44,15 +44,6 @@ class AppModel extends Model{
   }
 
   void getImage() async {
-    try {
-      bool res = await SimplePermissions.checkPermission(
-          Permission.WriteExternalStorage);
-      if (!res) {
-        final result = await SimplePermissions.requestPermission(
-            Permission.WriteExternalStorage);
-        if (result.toString() == "PermissionStatus.denied")
-          throw("Not enough permission");
-      }
       try {
         var photo = await ImagePicker.pickImage(source: ImageSource.camera);
         //escribir foto en memoria/////////////////////////////////////////////
@@ -134,49 +125,32 @@ class AppModel extends Model{
             }
           }
         } catch (e) {
-          _msg = new AlertDialog(
-            title: new Row(
-              children: <Widget>[
-                new Text("Server error  "),
-                new Icon(Icons.error, color: Colors.red, size: 30,),
-              ],
-            ),
-
-            actions: <Widget>[
-              new FlatButton(
-                onPressed: resetMsg,
-                child: new Text("Close", textScaleFactor: 1.2,),
-              ),
-            ],
-          );
-          _buttons = 4;
-          notifyListeners();
+          showAlert();
         }
       }
       catch (e) {
         resetMsg();
       }
-    }
+  }
 
-    catch (e) {
-      _msg = new AlertDialog(
-        title: new Row(
-          children: <Widget>[
-            new Text("Not enough permits  "),
-            new Icon(Icons.error, color: Colors.red, size: 30,),
-          ],
-        ),
-
-        actions: <Widget>[
-          new FlatButton(
-            onPressed: resetMsg,
-            child: new Text("Close", textScaleFactor: 1.2,),
-          ),
+  void showAlert() {
+    _msg = new AlertDialog(
+      title: new Row(
+        children: <Widget>[
+          new Text("Server error  "),
+          new Icon(Icons.error, color: Colors.red, size: 30,),
         ],
-      );
-      _buttons = 4;
-      notifyListeners();
-    }
+      ),
+
+      actions: <Widget>[
+        new FlatButton(
+          onPressed: resetMsg,
+          child: new Text("Close", textScaleFactor: 1.2,),
+        ),
+      ],
+    );
+    _buttons = 4;
+    notifyListeners();
   }
 
 
