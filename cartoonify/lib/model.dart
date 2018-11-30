@@ -43,32 +43,6 @@ class AppModel extends Model{
     return file.writeAsBytes(image);
   }
 
-  Future<File> get _counter async {
-    final path = await _localPath;
-    return File('$path/Cartoonify/counter.txt');
-  }
-
-  Future<int> readCounter() async {
-    try {
-      final file = await _counter;
-      // Read the file
-      String contents = await file.readAsString();
-      return int.parse(contents);
-    } catch (e) {
-      // If we encounter an error, return 0
-      return 0;
-    }
-  }
-
-  Future<File> writeCounter(int counter) async {
-    final file = await _counter;
-
-    // Write the file
-    return file.writeAsString('$counter');
-  }
-
-
-
   void getImage() async {
     try {
       bool res = await SimplePermissions.checkPermission(
@@ -81,7 +55,7 @@ class AppModel extends Model{
       }
       try {
         var photo = await ImagePicker.pickImage(source: ImageSource.camera);
-        //escribir foto en memoria
+        //escribir foto en memoria/////////////////////////////////////////////
         _msg = new Text('Getting picture', textScaleFactor: 1.5,);
         _buttons = 1;
         notifyListeners();
@@ -114,10 +88,6 @@ class AppModel extends Model{
             children: <Widget>[
               new Text('Loading ', textScaleFactor: 1,),
               JumpingText('...'),
-              //new CircularProgressIndicator(),
-              /*JumpingDotsProgressIndicator(
-            fontSize: 20.0,
-          ),*/
             ],
           );
           notifyListeners();
@@ -149,8 +119,6 @@ class AppModel extends Model{
               // Decoding base64 string received as response
               var imageResponse = base64.decode(cartoon);
               // Writing the decoded image to the output file
-              print("1");
-              //writeImage(imageResponse);
               await outputFile.writeAsBytes(imageResponse);
               print("2");
               _msg = new SizedBox(
@@ -163,10 +131,6 @@ class AppModel extends Model{
               print("3");
               _buttons = 2;
               notifyListeners();
-              print("4");
-              print("i vale: $_i");
-              //_i++;
-              //_image = outputFile;
             }
           }
         } catch (e) {
@@ -179,7 +143,6 @@ class AppModel extends Model{
             ),
 
             actions: <Widget>[
-              //new Text('Server error', textScaleFactor: 1.5,),
               new FlatButton(
                 onPressed: resetMsg,
                 child: new Text("Close", textScaleFactor: 1.2,),
@@ -205,7 +168,6 @@ class AppModel extends Model{
         ),
 
         actions: <Widget>[
-          //new Text('Server error', textScaleFactor: 1.5,),
           new FlatButton(
             onPressed: resetMsg,
             child: new Text("Close", textScaleFactor: 1.2,),
