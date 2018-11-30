@@ -101,12 +101,11 @@ class AppModel extends Model{
                 );
 
                 _buttons = 3;
-                notifyListeners();
               }
               else {
                 _buttons = 1;
-                notifyListeners();
               }
+              notifyListeners();
             }
           }
         } catch (e) {
@@ -192,66 +191,66 @@ class AppModel extends Model{
             if (!isThere) {
               directory.create(recursive: true);
             }
+            _msg = new Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  new Text('Loading gallery', textScaleFactor: 1,),
+                  JumpingText('...'),
+                ]
+            );
+            notifyListeners();
+
+            List<Container> containers = new List<Container>();
+            _storage.localPath.then((String path) {
+              final directory = new Directory(path + '/Pictures/cartoonify');
+              directory.list(recursive: false, followLinks: false).toList().then((
+                  List empty) {
+                if (empty.isEmpty) {
+                  _msg = new Text("There are no photos", textScaleFactor: 1.5,);
+                  _buttons = 5;
+                  notifyListeners();
+                }
+              });
+
+              directory.list(recursive: false, followLinks: false).listen((
+                  FileSystemEntity entity) {
+                final imageName = entity.path;
+                containers.add(
+                  new Container(
+                    child: new InkResponse(
+                      child: new Image.asset(imageName, fit: BoxFit.fill),
+                      enableFeedback: true,
+                      onTap: () => _onTileClicked(imageName),
+                    ),
+                  ),
+                );
+
+                if (containers.isNotEmpty) {
+                  _msg = GridView.count(
+                    crossAxisSpacing: 5.0,
+                    mainAxisSpacing: 5.0,
+                    crossAxisCount: 3,
+                    children: containers,
+                  );
+                  _buttons = 4;
+                } else {
+                  _msg = new Text("There are no photos", textScaleFactor: 1.5,);
+                  _buttons = 5;
+                }
+                notifyListeners();
+              });
+            });
           });
         });
       } catch (e) {
         print("error permisos");
       }
-      _msg = new Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            new Text('Loading gallery', textScaleFactor: 1,),
-            JumpingText('...'),
-          ]
-      );
-      notifyListeners();
 
-      List<Container> containers = new List<Container>();
-      _storage.localPath.then((String path) {
-        final directory = new Directory(path + '/Pictures/cartoonify');
-        directory.list(recursive: false, followLinks: false).toList().then((
-            List empty) {
-          if (empty.isEmpty) {
-            _msg = new Text("There are no photos", textScaleFactor: 1.5,);
-            _buttons = 5;
-            notifyListeners();
-          }
-        });
-
-        directory.list(recursive: false, followLinks: false).listen((
-            FileSystemEntity entity) {
-          final imageName = entity.path;
-          containers.add(
-            new Container(
-              child: new InkResponse(
-                child: new Image.asset(imageName, fit: BoxFit.fill),
-                enableFeedback: true,
-                onTap: () => _onTileClicked(imageName),
-              ),
-            ),
-          );
-
-          if (containers.isNotEmpty) {
-            _msg = GridView.count(
-              crossAxisSpacing: 5.0,
-              mainAxisSpacing: 5.0,
-              crossAxisCount: 3,
-              children: containers,
-            );
-            _buttons = 4;
-          } else {
-            _msg = new Text("There are no photos", textScaleFactor: 1.5,);
-            _buttons = 5;
-          }
-          notifyListeners();
-        });
-      });
     }catch(e){
       _permissionDialog();
     }
   }
-
 
   void handleResponse(response, {String appName}) {
     if (response == 0) {
@@ -269,12 +268,10 @@ class AppModel extends Model{
     }
   }
 
-
   void shareImage() {
     AdvancedShare.generic(msg: "Look what I'm doing with Cartoonify!", url: "data:image/png;base64," + cartoon64).then((response) {
       handleResponse(response);
-    }
-    );
+    });
   }
 
   void shareImageFromGallery() {
@@ -304,11 +301,12 @@ class AppModel extends Model{
   void _deletePhotoPressed() async {
     await _storage.deleteSelectedPhoto(imageSelected);
     gallery();
-
   }
+
   void onDeleteAllPhotosClicked(){
     _showAlert("Want to delete all photos?", _deletePressed);
   }
+
   void onDeletePhotoClicked(){
     _showAlert("Want to delete this foto?", _deletePhotoPressed);
   }
