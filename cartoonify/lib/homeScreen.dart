@@ -31,13 +31,13 @@ class _HomeScreenState extends State<HomeScreen>{
                  return Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: model.buttons==0? <Widget>[
+                    children: model.buttons==1? <Widget>[
                       FloatingActionButton(
                         onPressed: model.getImage,
                         tooltip: 'Take a picture',
                         child: Icon(Icons.photo_camera),
                       ),
-                    ]: model.buttons==1? <Widget>[
+                    ]: model.buttons==2? <Widget>[
                       FloatingActionButton.extended(
                         label: new Text("Cancel"),
                         icon: Icon(Icons.cancel,),
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen>{
                         backgroundColor: Colors.red,
                         onPressed: model.resetMsg,
                       ),
-                    ]: model.buttons==2?<Widget>[
+                    ]: model.buttons==3?<Widget>[
                       FloatingActionButton.extended(
                         label: new Text("Home"),
                         icon: Icon(Icons.home,),

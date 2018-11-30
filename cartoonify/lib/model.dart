@@ -17,7 +17,7 @@ class AppModel extends Model{
   int _i = 0;
   Widget _msg = new Text('Take a picture to convert', textScaleFactor: 1.5,);
   File _image;
-  int _buttons = 0;
+  int _buttons = 1;
   String _cartoon64;
   final scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -46,9 +46,8 @@ class AppModel extends Model{
   void getImage() async {
       try {
         var photo = await ImagePicker.pickImage(source: ImageSource.camera);
-        //escribir foto en memoria/////////////////////////////////////////////
         _msg = new Text('Getting picture', textScaleFactor: 1.5,);
-        _buttons = 1;
+        _buttons = 2;
         notifyListeners();
         // Getting the absolute path to this script file
         var currentPath = dirname(Platform.script.path);
@@ -64,8 +63,8 @@ class AppModel extends Model{
         // Creating request
         // NOTE: In the emulator, localhost ip is 10.0.2.2
         //var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
-        var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
-        //var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
+        //var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
+        var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
         var request = http.MultipartRequest("POST", uri);
         var inputFile = http.MultipartFile.fromBytes(
             'image', imageAsBytes, filename: 'image.jpg');
@@ -103,7 +102,6 @@ class AppModel extends Model{
             if (cartoon != null) {
               _msg = new Text('Transforming...', textScaleFactor: 1.5,);
               notifyListeners();
-              print("transforming");
 
               // Creating the output file
               var outputFile = await _localFile;
@@ -111,7 +109,6 @@ class AppModel extends Model{
               var imageResponse = base64.decode(cartoon);
               // Writing the decoded image to the output file
               await outputFile.writeAsBytes(imageResponse);
-              print("2");
               _msg = new SizedBox(
                   child: Container(
                     child: new Image.file(outputFile),
@@ -119,8 +116,7 @@ class AppModel extends Model{
                         border: Border.all(color: Colors.black)),
                   )
               );
-              print("3");
-              _buttons = 2;
+              _buttons = 3;
               notifyListeners();
             }
           }
@@ -149,7 +145,7 @@ class AppModel extends Model{
         ),
       ],
     );
-    _buttons = 4;
+    _buttons = 0;
     notifyListeners();
   }
 
@@ -161,7 +157,7 @@ class AppModel extends Model{
 
   void resetMsg(){
     _msg = new Text('Take a picture to convert', textScaleFactor: 1.5,);
-    _buttons = 0;
+    _buttons = 1;
     notifyListeners();
   }
 
