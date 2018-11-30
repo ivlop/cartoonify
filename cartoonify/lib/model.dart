@@ -10,21 +10,18 @@ import "package:path/path.dart" show dirname;
 import 'package:path_provider/path_provider.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 import 'package:advanced_share/advanced_share.dart';
-import 'package:simple_permissions/simple_permissions.dart';
-
 
 class AppModel extends Model{
-  int _i = 0;
+  int _index = 0;
   Widget _msg = new Text('Take a picture to convert', textScaleFactor: 1.5,);
-  File _image;
   int _buttons = 1;
   String _cartoon64;
   final scaffoldKey = new GlobalKey<ScaffoldState>();
   bool _server=false;
 
   Widget get msg => _msg;
-  File get image => _image;
   int get buttons => _buttons;
+  int get index => _index;
   String get cartoon64 => _cartoon64;
   bool get server => _server;
 
@@ -35,8 +32,8 @@ class AppModel extends Model{
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    _i++;
-    return File('$path/image$_i.png');
+    _index++;
+    return File('$path/image$index.png');
   }
 
   Future<File> writeImage(List<int> image) async{
@@ -59,8 +56,8 @@ class AppModel extends Model{
 
         // Creating request
         // NOTE: In the emulator, localhost ip is 10.0.2.2
-        var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
-        //var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
+        //var uri = Uri.parse('http://192.168.43.38:5000/cartoon');  //patri
+        var uri = Uri.parse('http://172.30.3.9:5000/cartoon'); //sobremesa
         //var uri = Uri.parse('http://192.168.43.122:5000/cartoon'); //portatil
         var request = http.MultipartRequest("POST", uri);
         var inputFile = http.MultipartFile.fromBytes(
@@ -101,7 +98,7 @@ class AppModel extends Model{
               // Writing the decoded image to the output file
               await outputFile.writeAsBytes(imageResponse);
 
-              if (!_server) {
+              if (!server) {
                 _msg = new SizedBox(
                     child: Container(
                       child: new Image.file(outputFile),
@@ -110,21 +107,19 @@ class AppModel extends Model{
                     )
                 );
                 _buttons = 3;
-                notifyListeners();
               }
             }
             else {
               _buttons = 1;
-              notifyListeners();
             }
+            notifyListeners();
           }
         } catch (e) {
           if (!server) {
             showAlert();
           }
         }
-      }
-      catch (e) {
+      } catch (e) {
         resetMsg();
       }
   }
@@ -150,10 +145,6 @@ class AppModel extends Model{
   }
 
 
-  void deletePressed() {
-    _image = null;
-    notifyListeners();
-  }
 
   void resetMsg(){
     _msg = new Text('Take a picture to convert', textScaleFactor: 1.5,);
