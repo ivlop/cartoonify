@@ -15,48 +15,50 @@ class _HomeScreenState extends State<HomeScreen>{
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cartoonify',
-      home: new Scaffold(
-        key: _scaffoldKey,
-          appBar: new AppBar(
-            title: new Text('Cartoonify'),
-            backgroundColor: Colors.orange,
-          ),
-          body: ScopedModelDescendant<AppModel>(
-            builder: (context, child, model){
-              return Center(child: model.msg);
-            }
-          ),
-          floatingActionButton:ScopedModelDescendant<AppModel>(
-              builder: (context, child, model) {
-                 return Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: model.buttons==1? <Widget>[
-                      FloatingActionButton(
-                        onPressed: model.getImage,
-                        tooltip: 'Take a picture',
-                        child: Icon(Icons.photo_camera),
-                      ),
-                    ]: model.buttons==2? <Widget>[
-                      FloatingActionButton.extended(
-                        label: new Text("Cancel"),
-                        icon: Icon(Icons.cancel,),
-                        tooltip: "Cancel transform",
-                        backgroundColor: Colors.red,
-                        onPressed: model.resetMsg,
-                      ),
-                    ]: model.buttons==3?<Widget>[
-                      FloatingActionButton.extended(
-                        label: new Text("Home"),
-                        icon: Icon(Icons.home,),
-                        tooltip: "Go to beginning",
-                        onPressed: model.resetMsg,
-                      ),
-                    ]: <Widget>[]
-                );
-              }
-          ),
-      ),
+      home: new WillPopScope(
+          onWillPop: () => Future.value(false),
+          child: new Scaffold(
+            key: _scaffoldKey,
+            appBar: new AppBar(
+              title: new Text('Cartoonify'),
+              backgroundColor: Colors.orange,
+            ),
+            body: ScopedModelDescendant<AppModel>(
+                builder: (context, child, model){
+                  return Center(child: model.msg);
+                }
+            ),
+            floatingActionButton:ScopedModelDescendant<AppModel>(
+                builder: (context, child, model) {
+                  return Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: model.buttons==1? <Widget>[
+                        FloatingActionButton(
+                          onPressed: model.getImage,
+                          tooltip: 'Take a picture',
+                          child: Icon(Icons.photo_camera),
+                        ),
+                      ]: model.buttons==2? <Widget>[
+                        FloatingActionButton.extended(
+                          label: new Text("Cancel"),
+                          icon: Icon(Icons.cancel,),
+                          tooltip: "Cancel transform",
+                          backgroundColor: Colors.red,
+                          onPressed: model.resetMsg,
+                        ),
+                      ]: model.buttons==3?<Widget>[
+                        FloatingActionButton.extended(
+                          label: new Text("Home"),
+                          icon: Icon(Icons.home,),
+                          tooltip: "Go to beginning",
+                          onPressed: model.resetMsg,
+                        ),
+                      ]: <Widget>[]
+                  );
+                }
+            ),
+          ),),
     );
   }
 }
